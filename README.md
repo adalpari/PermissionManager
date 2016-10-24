@@ -10,14 +10,14 @@ Android verion 6.0 sdk 23 or upper.
 
 Implement the Listener interface:
 
-```
+```java
 public class MainActivity extends AppCompatActivity implements PermissionManagerListener {
 ...
 ```
 
 Create the object and attach the listener:
 
-```
+```java
 ...
 PermissionManager mPermissionManager = new PermissionManager(this);
 PermissionManager mPermissionManager.onAttach(this);
@@ -26,7 +26,7 @@ PermissionManager mPermissionManager.onAttach(this);
 
 Override onRequestPermissionsResult and call PermissionManager method:
 
-```
+```java
 @Override
 public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
     mPermissionManager.onRequestPermissionsResult(requestCode, permissions, grantResults);
@@ -35,7 +35,7 @@ public void onRequestPermissionsResult(int requestCode, @NonNull String[] permis
 
 Override onPermissionsGranted and onPermissionsDenied to handle permission response:
 
-```
+```java
 @Override
 public void onPermissionsGranted(int requestCode) {
     switch (requestCode) {
@@ -75,13 +75,13 @@ public void onPermissionsDenied(int requestCode) {
 
 And finally, to use it, ask for the permission you want to use.
 
-```
+```java
 mPermissionManager.askForReadExternalStorage();
 ```
 
 Don´t forget to add permissions in manifest.xml
 
-```
+```xml
 <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 ```
 
