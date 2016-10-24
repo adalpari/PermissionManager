@@ -13,6 +13,8 @@ import android.support.v4.content.ContextCompat;
 
 public class PermissionManager {
 
+    // List created from https://developer.android.com/guide/topics/security/permissions.html
+
     public final static int PERMISSION_READ_CALENDAR_CODE              = 1;
     public final static int PERMISSION_WRITE_CALENDAR_CODE             = 2;
     public final static int PERMISSION_CAMERA_CODE                     = 3;
@@ -46,7 +48,11 @@ public class PermissionManager {
     }
 
     public void onAttach(PermissionManagerListener listener) {
-        this.listener = listener;
+        if (listener instanceof PermissionManagerListener) {
+            this.listener = listener;
+        } else {
+            throw new RuntimeException(listener.toString() + " must implement PermissionManagerListener");
+        }
     }
 
     /**
