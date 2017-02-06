@@ -53,6 +53,9 @@ public class PermissionManager {
         } else {
             throw new RuntimeException(listener.toString() + " must implement PermissionManagerListener");
         }
+
+    public void onDetach() {
+        this.listener = null;
     }
 
     /**
