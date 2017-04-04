@@ -58,7 +58,7 @@ public void onPermissionsGranted(int requestCode) {
 public void onPermissionsDenied(int requestCode) {
     switch (requestCode) {
         case PermissionManager.PERMISSION_READ_EXTERNAL_STORAGE_CODE:
-            tv// action
+            // action
             break;
         case PermissionManager.PERMISSION_READ_CONTACTS_CODE:
             // action
